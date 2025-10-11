@@ -1,14 +1,28 @@
-import { MainContainer, MainContent } from "./MainStyled";
+import { useMenu } from "../../context/MenuContext";
+import Home from "../Home/Home";
+import Calculate from "../Calculate/Calculate";
+import Card from "../Card/Card";
+import Settings from "../Settings/Settings";
 
 const Main = () => {
-  return (
-    <MainContainer>
-      <MainContent>
-        <h1>가계부 메인 화면</h1>
-        <p>여기에 콘텐츠가 표시됩니다.</p>
-      </MainContent>
-    </MainContainer>
-  );
+  const { activeMenuId } = useMenu();
+
+  const renderContent = () => {
+    switch (activeMenuId) {
+      case "home":
+        return <Home />;
+      case "calculator":
+        return <Calculate />;
+      case "card":
+        return <Card />;
+      case "settings":
+        return <Settings />;
+      default:
+        return <Home />;
+    }
+  };
+
+  return <>{renderContent()}</>;
 };
 
 export default Main;
