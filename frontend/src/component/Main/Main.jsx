@@ -3,6 +3,7 @@ import Home from "../Home/Home";
 import Calculate from "../Calculate/Calculate";
 import Card from "../Card/Card";
 import Settings from "../Settings/Settings";
+import Planner from "../Planner/Planner";
 
 const Main = () => {
   const { activeMenuId } = useMenu();
@@ -11,6 +12,8 @@ const Main = () => {
     switch (activeMenuId) {
       case "home":
         return <Home />;
+      case "planner":
+        return <Planner />;
       case "calculator":
         return <Calculate />;
       case "card":

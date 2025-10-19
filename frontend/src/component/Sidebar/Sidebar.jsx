@@ -24,6 +24,11 @@ const Sidebar = () => {
       icon: <HomeIcon />,
     },
     {
+      id: "planner",
+      name: "계획표",
+      icon: <CalculatorIcon />,
+    },
+    {
       id: "calculator",
       name: "정산",
       icon: <CalculatorIcon />,
