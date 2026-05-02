@@ -2,23 +2,20 @@
 
 ```
 AccountBook/
-├── frontend/                   # React Native (Expo)
-│   ├── app/
-│   │   ├── (tabs)/
-│   │   │   ├── index.tsx       # 홈 (대시보드)
-│   │   │   ├── plan.tsx        # 인생계획
-│   │   │   ├── transaction.tsx # 수입/지출
-│   │   │   ├── asset.tsx       # 자산
-│   │   │   └── profile.tsx     # 프로필
-│   │   └── _layout.tsx
-│   ├── components/             # 재사용 컴포넌트
-│   ├── store/                  # Zustand 상태관리
-│   ├── services/               # API 호출 함수 모음
-│   ├── hooks/                  # 커스텀 훅
-│   ├── types/                  # TypeScript 타입 정의
-│   ├── assets/
-│   ├── app.json
-│   └── package.json
+frontend/
+ ┣ src/
+ ┃ ┣ assets/        # 이미지, 폰트
+ ┃ ┣ components/    # 공통 UI 컴포넌트
+ ┃ ┣ screens/       # 화면 단위
+ ┃ ┣ navigation/    # 네비게이션 설정
+ ┃ ┣ hooks/         # 커스텀 훅
+ ┃ ┣ styles/        # 공통 스타일, 테마
+ ┃ ┣ services/      # API 통신
+ ┃ ┣ store/         # 상태관리 (zustand 등)
+ ┃ ┣ utils/         # 유틸 함수
+ ┃ ┗ types/         # 타입 정의
+ ┣ App.tsx
+ ┗ package.json
 │
 ├── backend/                    # 백엔드 서버
 │   ├── src/

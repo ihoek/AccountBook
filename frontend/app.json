@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AccountBook",
-    "slug": "AccountBook",
+    "name": "frontend",
+    "slug": "frontend",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
