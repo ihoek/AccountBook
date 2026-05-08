@@ -1,8 +1,13 @@
 import * as React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "../../../../App";
 import { colors } from "../../../styles/theme";
 import { styles } from "./styled";
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 type TabItem = {
   key: string;
@@ -33,8 +38,37 @@ const TABS: TabItem[] = [
   },
 ];
 
-const Footer = () => {
-  const [activeTab, setActiveTab] = React.useState("home");
+type FooterProps = {
+  initialTab?: string;
+};
+
+const Footer = ({ initialTab = "home" }: FooterProps) => {
+  const navigation = useNavigation<NavigationProp>();
+  const [activeTab, setActiveTab] = React.useState(initialTab);
+
+  const handleTabPress = (key: string) => {
+    if (key === "account") {
+      navigation.navigate("UserSetting");
+      setActiveTab(key);
+      return;
+    }
+    if (key === "expense") {
+      navigation.navigate("Sale");
+      setActiveTab(key);
+      return;
+    }
+    if (key === "routine") {
+      navigation.navigate("Routine");
+      setActiveTab(key);
+      return;
+    }
+    if (key === "home") {
+      navigation.navigate("Dashboard");
+      setActiveTab(key);
+      return;
+    }
+    setActiveTab(key);
+  };
 
   return (
     <View style={styles.container}>
@@ -44,7 +78,7 @@ const Footer = () => {
           <TouchableOpacity
             key={tab.key}
             style={styles.tab}
-            onPress={() => setActiveTab(tab.key)}
+            onPress={() => handleTabPress(tab.key)}
             activeOpacity={0.7}
           >
             <Ionicons
